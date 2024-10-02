@@ -11,6 +11,8 @@ You have a config file, with themes, and other characters. This program will ide
 - fail last - Incomplete output is better than no output deps: RQ2
 ### FRQ2 @
 - No result should be returned based on anything other than input e.g. If a hex value is formattedd wrong, the data should still be returned, but if the input value is incomplete it shouldn't be returned
+### FRQ3 @
+- Should return a config file, with the color model changed.
 ## Non functional requirements
 ### NRQ0
 - Termminal autocompletions

@@ -1,9 +1,12 @@
 # **Color format converter - SRS**
+Version: 1.1
+Author: Redacted for personal safety
+Date: 9.10.24
 ## introduction
 ### Purpose
-visit readme
+Help designers, developers, and Linux ricing fanboys convert colors between different color models.
 ### Intended Use
-You have a config file, with themes, and other characters. This program will identify any colors in any color model present in the file, and return an object with all of these colors in various formats to stdout.
+This program will identify any colors in any color model present in a file, and return an object with all of these colors in various formats to stdout.
 ## Functional requirements
 ### FRQ0 !
 - machine readable, and reproducible outputs
@@ -16,7 +19,25 @@ You have a config file, with themes, and other characters. This program will ide
 ## Non functional requirements
 ### NRQ0
 - Termminal autocompletions
+- priority: low
 ### NRQ1
 - Color highlighting in terminal
+- priority: low
 ### NRQ2 optional
 - simple tui for the program, used for interactive dialogs
+- priotity: lowewst
+### NRQ3 
+- Functional without internet connection
+- prority: highest
+### NRQ4
+- Linux first, not designed for windows, macos or any other system
+- priority: highest
+### NRQ5
+- Nix flake - distribute the software as a nix flake
+- priority: high
+### NRQ6
+- application is tested using alacritty terminal, running zsh
+- priority: high
+### NRQ7
+- No bash, fish suppport - application is designed to be ussed with zsh, and no other shells are officially supported
+- priority: highest

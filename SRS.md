@@ -1,43 +1,78 @@
-# **Color format converter - SRS**
-Version: 1.1
-Author: Redacted for personal safety
-Date: 9.10.24
-## introduction
-### Purpose
-Help designers, developers, and Linux ricing fanboys convert colors between different color models.
-### Intended Use
-This program will identify any colors in any color model present in a file, and return an object with all of these colors in various formats to stdout.
-## Functional requirements
-### FRQ0 !
-- machine readable, and reproducible outputs
-### FRQ1 !
-- fail last - Incomplete output is better than no output deps: RQ2
-### FRQ2 @
-- No result should be returned based on anything other than input e.g. If a hex value is formattedd wrong, the data should still be returned, but if the input value is incomplete it shouldn't be returned
-### FRQ3 @
-- Should return a config file, with the color model changed.
-## Non functional requirements
-### NRQ0
-- Termminal autocompletions
-- priority: low
-### NRQ1
-- Color highlighting in terminal
-- priority: low
-### NRQ2 optional
-- simple tui for the program, used for interactive dialogs
-- priotity: lowewst
-### NRQ3 
-- Functional without internet connection
-- prority: highest
-### NRQ4
-- Linux first, not designed for windows, macos or any other system
-- priority: highest
-### NRQ5
-- Nix flake - distribute the software as a nix flake
-- priority: high
-### NRQ6
-- application is tested using alacritty terminal, running zsh
-- priority: high
-### NRQ7
-- No bash, fish suppport - application is designed to be ussed with zsh, and no other shells are officially supported
-- priority: highest
+# Specifikace požadavků na systém (SRS)
+
+## 1. Úvod
+
+### 1.1 Účel
+Cílem této specifikace je popsat požadavky na kozolovou aplikaci napsanou v jazyce C#, která běží na operačních systémech Linux. Aplikace bude zpracovávat barevné hodnoty z vstupu a vracet je ve formátech RGB, RGBA a HEX.
+
+### 1.2 Rozsah
+Aplikace přijme barevný řetězec z `stdin`, provede jeho analýzu a vrátí tabulku s různými formáty barev. Bude také schopná zpracovat chybné vstupy a informovat uživatele.
+
+### 1.3 Definice
+- **Kozolová aplikace**: Aplikace, která běží v konzolovém režimu.
+- **RGB**: Model barev reprezentující červenou, zelenou a modrou.
+- **RGBA**: Rozšíření RGB o alfa kanál (průhlednost).
+- **HEX**: Šestnáctkový formát pro reprezentaci barev.
+
+## 2. Celkový popis
+
+### 2.1 Perspektiva produktu
+Aplikace bude sloužit jako nástroj pro rychlou konverzi barevných hodnot, což usnadní práci designérům a vývojářům.
+
+### 2.2 Funkce produktu
+- Přijetí barevného řetězce z `stdin`.
+- Převod barev na formáty RGB, RGBA a HEX.
+- Výpis tabulky s výsledky do konzole.
+
+### 2.3 Uživatelská charakteristika
+Aplikace je určena pro vývojáře, designéry a další uživatele, kteří potřebují rychle převádět barevné hodnoty.
+
+## 3. Požadavky
+
+### 3.1 Funkční požadavky
+
+#### 3.1.1 Přijetí barevného vstupu
+- Aplikace musí přijmout barevný řetězec (např. `#FF5733`, `rgb(255, 87, 51)`, `rgba(255, 87, 51, 0.5)`).
+
+#### 3.1.2 Konverze barev
+- Aplikace musí převést přijatý barevný vstup do formátů:
+  - RGB: `(255, 87, 51)`
+  - RGBA: `(255, 87, 51, 1)` (nebo odpovídající alfa hodnotu)
+  - HEX: `#FF5733`
+
+#### 3.1.3 Výstup tabulky
+- Aplikace musí zobrazit tabulku s výsledky ve formátu:
+  ```
+  | Format | Value           |
+  |--------|------------------|
+  | RGB    | (255, 87, 51)    |
+  | RGBA   | (255, 87, 51, 1) |
+  | HEX    | #FF5733          |
+  ```
+
+### 3.2 Nefunkční požadavky
+
+#### 3.2.1 Výkon
+- Aplikace by měla zpracovat vstup a vrátit výstup během 1 sekundy.
+
+#### 3.2.2 Bezpečnost
+- Aplikace by měla správně zachytit a zpracovat chybné vstupy (např. neplatné barevné hodnoty).
+
+#### 3.2.3 Kompatibilita
+- Aplikace musí být kompatibilní s moderními distribucemi Linuxu a vyžaduje nainstalovaný .NET Core.
+
+## 4. Externí rozhraní
+
+### 4.1 Uživatelské rozhraní
+Aplikace bude fungovat v textovém režimu, interakce uživatele bude probíhat prostřednictvím příkazového řádku.
+
+### 4.2 Hardwarové rozhraní
+- Jakýkoliv počítač s nainstalovaným Linuxem a .NET Core.
+
+### 4.3 Softwarové rozhraní
+- .NET Core pro běh aplikace
+- Knihovny pro práci s textem (pro analýzu barevných řetězců).
+
+## 5. Doplňky
+- Dokumentace pro uživatele bude k dispozici v README souboru.
+- Aplikace bude mít interní nápovědu přístupnou pomocí příkazu `--help`.

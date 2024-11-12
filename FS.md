@@ -1,7 +1,3 @@
-Děkuji za upřesnění ohledně ISBN. Pokud má systém podporovat oba formáty ISBN (nový 13-ciferný formát i starý 10-ciferný formát), upravím dokument, aby tuto funkcionalitu zahrnoval. Zde je aktualizovaná verze s podporou pro oba formáty ISBN.
-
----
-
 ### Funkční specifikace  
 **Projekt:** Správa knihovny  
 **Verze dokumentu:** 1.0
